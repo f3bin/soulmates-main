@@ -1,0 +1,29 @@
+.welcome-container {
+     width: 100%;
+     display: flex;
+     flex-direction: column;
+ 
+
+     .welcome-header {
+          width: 100%;
+          height: 800px;
+          background-image: url(../../images/weddingdreams.jpg);
+         background-size: 100% 100%;
+
+         display: flex;
+         flex-direction: column;
+         justify-content: space-between;
+
+         .warning-profile{
+          background-color: red;
+          width: 100%;
+          height: 40px;
+         }
+        
+     }   
+     
+     .welcome-body{
+          height: fit-content;
+     }
+}
+

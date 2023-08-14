@@ -1,0 +1,62 @@
+.connection-requests-container {
+     width: 330px;
+     max-height: 500px;
+     position: absolute;
+     top: 63px;
+     right: 250px;
+     background-color: #f9f9f9;
+     border: 1px solid #ccc;
+     border-radius: 8px;
+     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+     overflow-y: scroll;
+
+     h3 {
+          margin: 20px;
+          font-size: 1.1rem;
+       
+     }
+
+     .request-item {
+          width: 100%;
+          padding: 10px;
+          display: flex;
+          justify-content: space-around;
+          align-items: center;
+          border-bottom: 1px solid #ccc;
+
+          .request-section {
+               display: flex;
+               align-items: center;
+               gap: 3px;
+
+               img {
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                    object-fit: cover;
+                    margin-right: 10px;
+               }
+
+               h3 {
+                    margin: 0;
+                    font-size: 1.5rem;
+               }
+
+               .accept-btn {
+                    background-color: #4caf50;
+                    width: 60px;
+                    height: 25px;
+                    color: white;
+                    cursor: pointer;
+               }
+
+               .ignore-btn {
+                    background-color: #f44336;
+                    width: 60px;
+                    height: 25px;  
+                    color: white;
+                    cursor: pointer;
+               }
+          }
+     }
+}

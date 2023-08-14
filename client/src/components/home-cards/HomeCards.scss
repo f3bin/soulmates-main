@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&display=swap');
+
+.cards-container {
+     width: 100%;
+     height: fit-content;
+     font-family: 'Open Sans', sans-serif;
+     margin-top: 20px;
+     margin-bottom: 10px;
+     display: flex;
+     justify-content: space-around;
+
+     .cards {
+          width: 20%;
+          padding: 40px 5px;
+          box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 12px;
+          transition: box-shadow 0.3s ease-in-out; 
+        
+          p {
+            color: rgba(85, 85, 85, 0.6);
+          }
+        
+          &:hover {
+            box-shadow: rgba(0, 0, 0, 0.2) 0px 6px 20px; 
+            transform: translateY(-5px); 
+          }
+        }
+        
+}
