@@ -2,6 +2,7 @@ import React from "react";
 import { FiUserCheck, FiUserX } from "react-icons/fi";
 import "./ConnectionRequests.scss";
 import useConnectionRequests from "./useConnectionRequests";
+import Loader from "../loader/Loader";
 
 const ConnectionRequests = () => {
   const {
@@ -17,7 +18,7 @@ const ConnectionRequests = () => {
   return (
     <div className="connection-requests-container">
       <h3>Connection Requests</h3>
-      {status === "loading" && <p>Loading connection requests...</p>}
+      {status === "loading" && <Loader />}
       {status === "failed" && <p>Error: {error}</p>}
       {status === "succeeded" && connectionReqData.length === 0 ? (
         <div className="request-item">

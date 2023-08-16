@@ -3,9 +3,11 @@ import { FaUsers } from "react-icons/fa";
 import { FaUserPlus, FaUserCheck } from "react-icons/fa";
 import { ToastContainer } from "react-toastify";
 import "./UsersList.scss";
+import Loader from '../loader/Loader'
 import useUserList from "./useUserList";
 
-const UsersList = () => {
+const UsersList = ({filters}) => {
+  
   const {
     filteredUsers,
     connectedUsers,
@@ -18,15 +20,19 @@ const UsersList = () => {
     userProfiles,
     currentUser,
     status,
-    error
+    error,usersForCurrentPage,
+    setCurrentPage
+    ,currentPage,endIndex,
+    filterappliedUsers
   } = useUserList();
 
-  
+ 
+
   return (
     <div className="users-list-container">
-      {status === "loading" && <p>Loading...</p>} 
+      {status === "loading" && <Loader />} 
       {status === "failed" && <p>Error: {error}</p>}
-      {status === "succeeded" && filteredUsers.map((user) => {
+      {status === "succeeded" && usersForCurrentPage.map((user) => {
         const profile = userProfiles.find(
           (profile) =>
             profile.userInfo === user._id &&
@@ -66,7 +72,7 @@ const UsersList = () => {
                       friendId.includes(user._id)
                         ? "alreadyConnected"
                         : connectedUsers.some(
-                            (connection) => connection.SecondUserId === user._id
+                            (connection) => connection.SecondUserId === user._id 
                           )
                         ? "clicked"
                         : "cancelled"
@@ -95,6 +101,24 @@ const UsersList = () => {
           </div>
         );
       })}
+      <div className="pagination">
+        <button
+          className="pagination-button"
+          onClick={() => setCurrentPage(currentPage - 1)}
+          disabled={currentPage === 1}
+        >
+          Previous
+        </button>
+        <span className="current-page">{currentPage}</span>
+        <button
+          className="pagination-button"
+          onClick={() => setCurrentPage(currentPage + 1)}
+          disabled={endIndex >= filteredUsers.length}
+        >
+          Next
+        </button>
+      </div>
+
       <ToastContainer />
     </div>
   );

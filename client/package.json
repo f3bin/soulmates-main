@@ -12,6 +12,7 @@
     "buffer": "^6.0.3",
     "crypto-browserify": "^3.12.0",
     "jsonwebtoken": "^9.0.1",
+    "jspdf": "^2.5.1",
     "rc-steps": "^6.0.1",
     "react": "^18.2.0",
     "react-bootstrap": "^2.8.0",
@@ -28,7 +29,7 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-    "start": "react-scripts start --port 3001",
+    "start": "react-scripts start --port 3000",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"

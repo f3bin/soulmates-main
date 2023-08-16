@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import ProfileNavbar from "../../components/profile-navbar/ProfileNavbar";
 import "./Welcome.scss";
 import ProfileFilter from "../../components/profile-filter/ProfileFilter";
@@ -7,6 +7,9 @@ import useWelcome from "./useWelcome";
 
 const Welcome = () => {
   const { filteredSelfProfile} = useWelcome();
+
+ 
+
   return (
     <div className="welcome-container">
       <div className="welcome-header">
@@ -19,7 +22,7 @@ const Welcome = () => {
         )}
       </div>
       <div className="welcome-body">
-        <UsersList />
+        <UsersList  />
       </div>
     </div>
   );

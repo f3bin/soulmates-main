@@ -8,7 +8,7 @@ const useWelcome = () => {
        (profile) => profile.userInfo === user.userId
      );
    
-  return {filteredSelfProfile}
+  return {filteredSelfProfile }
 }
 
 export default useWelcome

@@ -4,6 +4,7 @@ import axios from 'axios';
 const initialState = {
      users: [],
      profileData: [],
+     filterAppliedUserData:[],
      status: 'idle', 
      loading: false, 
      error: null,   
@@ -35,7 +36,12 @@ export const fetchUserProfiles = createAsyncThunk('users/fetchUserProfiles', asy
 const usersSlice = createSlice({
      name: "users",
      initialState,
-     reducers: {},
+     reducers: {
+          setFilterAppliedUserData: (state, action) => {
+               console.log(action.payload,'action')
+               state.filterAppliedUserData = action.payload;
+             },
+     },
      extraReducers: (builder) => {
           builder
             .addCase(fetchUsers.pending, (state) => {
@@ -64,3 +70,4 @@ const usersSlice = createSlice({
 })
 
 export default usersSlice.reducer;
+export const {setFilterAppliedUserData}= usersSlice.actions;

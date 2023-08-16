@@ -14,7 +14,7 @@ const app = express();
 const uploadPath = path.join(__dirname, 'uploads');
 app.use('/uploads', express.static('uploads'));
 
-app.use(cors({ origin: 'http://localhost:3001', credentials: true }));
+app.use(cors({ origin: 'http://localhost:3000', credentials: true }));
 app.use(express.json())
 
 app.use(express.urlencoded({ extended: true }));
@@ -224,6 +224,25 @@ app.delete('/api/duoConnections/:id',async (req,res)=>{
   }
 })
 
+
+app.get('/api/filterAppliedUsers',async(req,res)=>{
+  try{
+    const { gender, age, religion, motherTongue } = req.query; // Extract filters from query parameters
+
+    // Build a query object based on the provided filters
+    const query = {};
+    if (gender) query.gender = gender;
+    if (age) query.age =  age ; 
+    if (religion) query.religion = religion;
+    if (motherTongue) query.motherTongue = motherTongue;
+
+    const filterAppliedUsers = await UserProfileData.find(query);
+    res.json(filterAppliedUsers);
+  }catch (err) {
+    console.error(err);
+    res.status(500).json({ error: 'An error occurred while fetching users' });
+}
+})
 
 
 app.listen(9000, () => {

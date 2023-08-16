@@ -1,105 +1,142 @@
 .users-list-container {
-     display: flex;
-     gap: 10px;
-     flex-wrap: wrap;
-     justify-content: center;
-     padding: 30px;
-   }
-   
-   .user-card {
-     border: 1px solid #ccc;
-     width: 23%;
-     min-width: 250px;
-     background-color: #f9f9f9;
-     box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-     border-radius: 5px;  
-     display: flex;
-     flex-direction: column;
-   
-     .user-card-image-part {
-       position: relative;
-       padding-top: 100%;
-       overflow: hidden;
-   
-       img {
-         position: absolute;
-         top: 0;
-         left: 0;
-         width: 100%;
-         height: 100%;
-         object-fit: cover;
-       }
-     }
-   
-     .user-details-part {
-       padding: 10px;
-       text-align: center;
-   
-       h3 {
-         margin: 0;
-         font-size: 1.2rem;
-       }
-   
-       p {
-         margin: 5px 0;
-         height: 25px;
-       }
-     }
-   
-     .user-details-buttons {
-       display: flex;
-       
-       justify-content: space-around;
-       align-items: center;
-       padding: 10px;
-   
-       .view-profile-btn{
-          width: 80%;
-       }
-       .alreadyConnected{
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 30px;
+
+
+  .user-card {
+    border: 1px solid #ccc;
+    width: 23%;
+    min-width: 250px;
+    background-color: #f9f9f9;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+
+    .user-card-image-part {
+      position: relative;
+      padding-top: 100%;
+      overflow: hidden;
+
+      img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .user-details-part {
+      padding: 10px;
+      text-align: center;
+
+      h3 {
+        margin: 0;
+        font-size: 1.2rem;
+      }
+
+      p {
+        margin: 5px 0;
+        height: 25px;
+      }
+    }
+
+    .user-details-buttons {
+      display: flex;
+
+      justify-content: space-around;
+      align-items: center;
+      padding: 10px;
+
+      .view-profile-btn {
+        width: 80%;
+      }
+
+      .alreadyConnected {
         padding: 8px 15px;
         background-color: green;
         color: white;
-        border: 1px solid ;
+        border: 1px solid;
         font-size: 14px;
         transition: background-color 0.3s, color 0.3s;
 
         &:hover {
           background-color: rgb(5, 133, 5);
         }
-       }
-       .cancelled,.view-profile-btn {
-         padding: 8px 15px;
-         background-color: #007bff;
-         color: white;
-         border: 1px solid white;
-         border-radius: 4px;
-         cursor: pointer;
-         font-size: 14px;
-         transition: background-color 0.3s, color 0.3s;
-   
-         &:hover {
-           background-color: #0056b3;
-         }
-       }
-       .clicked {
-          padding: 8px 15px;
-          background-color: white;
-          color: #007bff;
-          border: 1px solid #007bff;
-          border-radius: 4px;
-          cursor: pointer;
-          font-size: 14px;
-          transition: background-color 0.3s, color 0.3s;
-    
-          &:hover {
-            background-color: rgb(248, 244, 244);
-          }
+      }
+
+      .cancelled,
+      .view-profile-btn {
+        padding: 8px 15px;
+        background-color: #007bff;
+        color: white;
+        border: 1px solid white;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.3s, color 0.3s;
+
+        &:hover {
+          background-color: #0056b3;
         }
-     }
-   
-     @media (max-width: 768px) {
-       width: 45%; 
-     }
-   }
-   
+      }
+
+      .clicked {
+        padding: 8px 15px;
+        background-color: white;
+        color: #007bff;
+        border: 1px solid #007bff;
+        border-radius: 4px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.3s, color 0.3s;
+
+        &:hover {
+          background-color: rgb(248, 244, 244);
+        }
+      }
+    }
+
+    @media (max-width: 768px) {
+      width: 45%;
+    }
+  }
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+
+    .pagination-button {
+      padding: 8px 12px;
+      background-color: #f2f2f2;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+      transition: background-color 0.2s ease-in-out;
+
+      &:disabled {
+        cursor: not-allowed;
+        background-color: #ddd;
+        color: #888;
+      }
+
+      &:not(:disabled):hover {
+        background-color: #e0e0e0;
+      }
+    }
+
+    .current-page {
+      margin: 0 12px;
+      font-size: 16px;
+      font-weight: bold;
+    }
+  }
+
+}

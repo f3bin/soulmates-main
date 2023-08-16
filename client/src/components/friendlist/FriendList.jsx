@@ -2,6 +2,7 @@ import React from "react";
 import { MdPersonRemoveAlt1 } from "react-icons/md";
 import "./FriendList.scss";
 import useFriendList from "./useFriendList";
+import Loader from "../loader/Loader";
 import { Link } from "react-router-dom";
 
 const FriendList = () => {
@@ -19,7 +20,7 @@ const FriendList = () => {
     <div className="friendlist-container">
       <h3>FriendList</h3>
       <div className="friendlist-items">
-        {status === "loading" && <p>Loading connection requests...</p>}
+        {status === "loading" && <Loader />}
         {status === "failed" && <p>Error: {error}</p>}
         {status === "succeeded" &&
           userConnections.map((userConnection) => {
