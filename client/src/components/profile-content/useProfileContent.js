@@ -1,5 +1,7 @@
 import { useSelector } from "react-redux";
 import { useParams, useNavigate } from "react-router-dom";
+import { fetchUserProfiles,fetchUsers } from "../../redux/usersSlice";
+import { useEffect } from "react";
 
 const useProfileContent = () => {
   const navigate = useNavigate();

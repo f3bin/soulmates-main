@@ -36,6 +36,9 @@ const useUserList = () => {
      const connectedUsers = connectionData.filter((connection) => {
           return connection.LoggedInUserId === currentUser.userId 
      });
+     const requestedUsers = connectionData.filter((connection)=>{
+          return connection.SecondUserId ===currentUser.userId
+     })
 
      //checking the profiles to take the exact profile of the user
      const filteredSelfProfile = userProfiles.find(
@@ -125,7 +128,7 @@ const useUserList = () => {
      return { filteredUsers, connectedUsers, filteredSelfProfile,
            userDuoConnections, friendId, handleViewProfile, handleConnect,
             handleNoProfile, handleAlreadyConnected ,userProfiles,currentUser,status,error,usersForCurrentPage,setCurrentPage
-          ,currentPage,endIndex,filterappliedUsers}
+          ,currentPage,endIndex,filterappliedUsers,requestedUsers}
 }
 
 export default useUserList

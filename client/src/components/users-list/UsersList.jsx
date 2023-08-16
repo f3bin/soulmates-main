@@ -79,7 +79,7 @@ const UsersList = ({filters}) => {
                     }
                     onClick={
                       filteredSelfProfile
-                        ? friendId.includes(user._id)
+                        ? friendId.includes(user._id) 
                           ? () => handleAlreadyConnected()
                           : () => handleConnect(user._id)
                         : () => handleNoProfile()

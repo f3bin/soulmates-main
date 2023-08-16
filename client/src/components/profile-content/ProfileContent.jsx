@@ -9,7 +9,6 @@ import Biodata from "../biodata/Biodata";
 const ProfileContent = () => {
   const { paramsUser, filteredSelfProfile, isCurrentUser, goBack, isAlreadyConnected } =
     useProfileContent();
-  console.log(isAlreadyConnected, "isconnected")
   return (
     <>
 

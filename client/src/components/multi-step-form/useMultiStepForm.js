@@ -1,38 +1,41 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import axios from "axios";
+import {toast} from 'react-toastify'
 
 const useMultiStepForm = () => {
-
      const user = useSelector((state) => state.auth.user);
-     const [formData, setFormData] = useState({
-       personalInfo: {
-         photo: "",
-         phone:"",
-         city: "",
-         age:"",
-         gender:"",
-         height: "",
-         diet: "",
-         religion: "",
-         motherTongue: "",
-       },
-       educationDetails: {
-         highestQualification: "",
-         completionYear: "",
-       },
-       aboutWork: {
-         job: "",
-         worksAs: "",
-         yearlyIncome: "",
-       },
-       description: {
-         aboutYou: "",
-       },
-       userInfo: {
-         userId: user.userId,
-       },
-     });
+    
+     const initialState = {
+      personalInfo: {
+        photo: "",
+        phone: "",
+        city: "",
+        age: "",
+        gender: "",
+        height: "",
+        diet: "",
+        religion: "",
+        motherTongue: "",
+      },
+      educationDetails: {
+        highestQualification: "",
+        completionYear: "",
+      },
+      aboutWork: {
+        job: "",
+        worksAs: "",
+        yearlyIncome: "",
+      },
+      description: {
+        aboutYou: "",
+      },
+      userInfo: {
+        userId: user.userId,
+      },
+    };
+
+     const [formData, setFormData] = useState(initialState);
    
      const handleInputChange = (section, field, value) => {
        setFormData((prevData) => ({
@@ -61,6 +64,10 @@ const useMultiStepForm = () => {
            }
          );
          console.log(response.data);
+         toast.success("Created Profile Succesfully",{
+          theme:"dark"
+         });
+         setFormData(initialState);
        } catch (error) {
          console.error(error);
        }
